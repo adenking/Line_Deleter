@@ -7,11 +7,18 @@ def process_lines(lines, line_length):
     return processed_lines
 
 
+def save_to_file(filename, lines):
+    with open(filename, "w") as f:
+        f.write("\n".join(lines))
+
+    return "Lines Processed"
+
+
 def line_delete(filename, line_length):
     with open(filename)as f:
         line_data = f.read()
     line_data = line_data.splitlines()
-    print(process_lines(line_data, line_length))
+    print(save_to_file(filename, process_lines(line_data, line_length)))
 
 
 line_delete("wordlist_test.txt", 3)
