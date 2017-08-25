@@ -1,10 +1,9 @@
 def process_lines(lines, line_length):
     processed_lines = []
-    j = 0
-    for i in len(lines):
-        if len(i) > line_length:
-            processed_lines[j] = lines[i]
-            j += 1
+
+    for i in range(len(lines)):
+        if len(lines[i]) > line_length:
+            processed_lines.append(lines[i])
     return processed_lines
 
 
