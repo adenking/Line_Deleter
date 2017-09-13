@@ -2,7 +2,7 @@ def process_lines(lines, line_length):
     processed_lines = []
 
     for i in range(len(lines)):
-        if len(lines[i]) > line_length:
+        if len(lines[i]) >= line_length:
             processed_lines.append(lines[i])
     return processed_lines
 
@@ -20,5 +20,6 @@ def line_delete(filename, line_length):
     line_data = line_data.splitlines()
     print(save_to_file(filename, process_lines(line_data, line_length)))
 
-
-line_delete("wordlist_test.txt", 3)
+file_name = input('filename:')
+min_characters = int(input('smallest line to keep:'))
+line_delete(file_name, min_characters)
