@@ -8,15 +8,21 @@ def process_lines(lines, line_length):
 
 
 def save_to_file(filename, lines):
-    with open(filename, "w") as f:
-        f.write("\n".join(lines))
+    try:
+        with open(filename, "w") as f:
+            f.write("\n".join(lines))
+    except FileNotFoundError:
+        print('No file named "{0}" found.'.format(filename))
 
     return "Lines Processed"
 
 
 def line_delete(filename, line_length):
-    with open(filename)as f:
-        line_data = f.read()
+    try:
+        with open(filename)as f:
+            line_data = f.read()
+    except FileNotFoundError:
+        print('No file named "{0}" found.'.format(filename))
     line_data = line_data.splitlines()
     print(save_to_file(filename, process_lines(line_data, line_length)))
 
