@@ -23,6 +23,7 @@ def line_delete(filename, line_length):
             line_data = f.read()
     except FileNotFoundError:
         print('No file named "{0}" found.'.format(filename))
+        line_data = ''
     line_data = line_data.splitlines()
     print(save_to_file(filename, process_lines(line_data, line_length)))
 
